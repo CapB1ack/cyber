@@ -1,22 +1,22 @@
-import React from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {Links} from './Links';
 import {Prodact} from './Prodact';
 import {IAccordion, IProduct} from '../models';
 
-export const Accordeon = ({name, prodacts}: IAccordion) => {
+export const Accordeon: FunctionComponent<IAccordion> = ({name, prodacts, links, label}: IAccordion) => {
+  const [checked, setChecked] = useState(true);
   const accName = `accordeon_${name}`;
-
-  const handleOnChange = () => {};
+  const handleChecked = () => setChecked(!checked);
 
   return (
     <div className={`accordeon ${name} collapsed`}>
-      <input checked type="checkbox" name={accName} id={accName} onChange={handleOnChange} />
+      <input checked={checked} type="checkbox" name={accName} id={accName} onChange={handleChecked} />
       <label className="accordeon__header" htmlFor={accName}>
-        <div className="accordeon__arrow">&#11167;</div>
-        Защита Endpoint
+        <div className="accordeon__arrow">⇩</div>
+        {label}
       </label>
       <div className="accordeon__body">
-        <Links/>
+        <Links {...links}/>
         <div className="heading">
           В лицензировании помогут:
         </div>

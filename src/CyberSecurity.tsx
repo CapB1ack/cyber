@@ -12,7 +12,7 @@ export class CyberSecurity extends Component {
           <span>Выберите интересующую тему:</span>
         </div>
         {
-          CSModel.accordions.map((accordion: IAccordion) => <Accordeon key={accordion.name} name={accordion.name} prodacts={accordion.prodacts}/>)
+          CSModel.accordions.map((accordion: IAccordion) => <Accordeon key={accordion.name} {...accordion} />)
         }
       </div>
     );

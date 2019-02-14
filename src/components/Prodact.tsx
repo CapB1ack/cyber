@@ -1,9 +1,9 @@
 import React from 'react';
 import {IProduct} from '../models';
 
-export const Prodact = ({isHead, email, emailUrl, name, photoUrl, position, vendors}: IProduct) => {
+export const Prodact = ({isHead, email, emailUrl, name, photoUrl, position, vendors, isCentered}: IProduct) => {
   return (
-    <div className={`prodact ${isHead ? 'head': ''}`}>
+    <div className={`prodact ${isHead ? 'head': ''} ${isCentered ? 'centered': ''}`}>
       <div className="prodact__foto">
         <img src={photoUrl}/>
       </div>
